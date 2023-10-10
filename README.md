@@ -1,1 +1,1 @@
-# SSI
+# Systemy Sztucznej Inteligencji
