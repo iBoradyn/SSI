@@ -13,9 +13,9 @@ fig, axs = plt.subplots(2, 2)
 
 labels = list(map(lambda x: x[1:], re.findall(r'=[a-zA-Z]*', ar.get_attr_name(4))))
 filtered_samples = [
-    sr.samples.filter(like='1', axis=0),
-    sr.samples.filter(like='2', axis=0),
-    sr.samples.filter(like='3', axis=0),
+    sr.samples[sr.samples[4] == 1],
+    sr.samples[sr.samples[4] == 2],
+    sr.samples[sr.samples[4] == 3],
 ]
 
 list_x_0_0 = [
