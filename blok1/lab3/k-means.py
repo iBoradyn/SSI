@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 class KMeans:
     def __init__(self, samples_filename, m, iters, groups_colors=None):
         if groups_colors is None:
-            groups_colors = ['red', 'green', 'blue', 'cyan']
+            groups_colors = ['yellow', 'green', 'blue', 'cyan']
 
         self.samples = SamplesReader(samples_filename).samples
         self.m = m
@@ -82,7 +82,7 @@ class KMeans:
                         sum(points_x) / len(points_x),
                         sum(points_y) / len(points_y),
                 )
-        labels = [f'Grupa {i}' for i in range(1, self.m+1)]
+        labels = [f'Grupa {i}' for i in range(1, self.m+1)] + ['Środek grupy']
         # Shrink current axis by 20%
         for ax in axs:
             box = ax.get_position()
