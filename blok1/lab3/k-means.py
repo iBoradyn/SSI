@@ -51,7 +51,7 @@ class KMeans:
         axs[0].set_title('Pierwsza interacja')
         axs[1].set_xlabel('x')
         axs[1].set_ylabel('y')
-        axs[1].set_title('Po 100 iteracjach')
+        axs[1].set_title(f'Po {self.iters} iteracjach')
 
         for iter_i in range(self.iters):
             groups = {x: [] for x in V}
