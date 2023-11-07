@@ -1,5 +1,8 @@
 import math
 
+import numpy as np
+from matplotlib import pyplot as plt
+
 
 class Greedy:
     def __init__(self, bitmaps: dict[int: list[list]] = None):
@@ -94,3 +97,27 @@ bitmap_3_result = greedy_algorithm.compare(bitmap_3)
 print(f'Bitmap 1:{bitmap_1_result}')
 print(f'Bitmap 2:{bitmap_2_result}')
 print(f'Bitmap 3:{bitmap_3_result}')
+
+
+test_bitmaps = [bitmap_1, bitmap_2, bitmap_3]
+results = [bitmap_1_result, bitmap_2_result, bitmap_3_result]
+# results = [ for x, _ in results]
+
+fig, axs = plt.subplots(3, 2)
+fig.tight_layout(pad=1.2)
+
+for i, bitmap in enumerate(test_bitmaps):
+    axs[i][0].set_title(f'Obraz testowy nr. {i+1}')
+
+    image_before = np.array(bitmap).reshape(5, 4)
+    image_before = np.expand_dims(image_before, axis=-1)
+    axs[i][0].imshow(image_before, cmap=plt.get_cmap('gray'))
+
+for i, (x, result) in enumerate(results):
+    axs[i][1].set_title(f'Dopasowany obraz nr. {x}')
+
+    image_before = np.array(greedy_algorithm.bitmaps[x]).reshape(5, 4)
+    image_before = np.expand_dims(image_before, axis=-1)
+    axs[i][1].imshow(image_before, cmap=plt.get_cmap('gray'))
+
+plt.show()
